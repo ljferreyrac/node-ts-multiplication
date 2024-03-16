@@ -14,17 +14,16 @@ export class CreateTable implements CreateTableUseCase {
          */
     ){}
 
-    execute({ base, limit}: CreateTableOptions){
-        let output = '';
-
-        const header = `
-==============================
+    execute({ base, limit }: CreateTableOptions){
+        const header = 
+`==============================
         Tabla del ${base}
-==============================\n
-`;
-        output += header;    
+==============================\n`;
+        let output = header;    
         for (let index = 1; index <= limit; index++) {
-            output += `${base} x ${index} = ${base * index}\n`
+            output += `${base} x ${index} = ${base * index}`;
+
+            if( index < limit) output += '\n';
         }
 
         return output;
